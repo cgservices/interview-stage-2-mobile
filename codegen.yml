@@ -15,3 +15,4 @@ generates:
         typeNames: "pascal-case#pascalCase"
       transformUnderscore: true
       enumAsConst: true
+      extractAllFieldsToTypes: true

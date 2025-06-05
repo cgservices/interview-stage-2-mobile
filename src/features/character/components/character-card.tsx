@@ -1,17 +1,20 @@
 import type React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import type { GetCharactersQuery } from '../generated/get-characters';
+import type {
+  GetCharactersQuery_characters_Characters_results_Character,
+} from '../generated/get-characters';
 
 interface Props {
-	character: NonNullable<NonNullable<GetCharactersQuery['characters']>['results']>[number];
+	character: GetCharactersQuery_characters_Characters_results_Character
 }
 
 export const CharacterCard: React.FC<Props> = ({ character }) => (
 	<View style={styles.card}>
-		<Image source={{ uri: character?.image ?? '' }} style={styles.img} />
+    {character.image != null &&
+		<Image source={{ uri: character.image }} style={styles.img} />}
 		<View style={styles.meta}>
-			<Text style={styles.name}>{character?.name}</Text>
-			<Text>{character?.species}</Text>
+			<Text style={styles.name}>{character.name}</Text>
+			<Text>{character.species}</Text>
 		</View>
 	</View>
 );
