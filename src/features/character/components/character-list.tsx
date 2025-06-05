@@ -42,9 +42,11 @@ export const CharacterList: React.FC = () => {
         <Text style={styles.err}>{error.message}</Text>
       ) : (
         <ScrollView keyboardShouldPersistTaps="handled">
-          {data?.characters?.results?.filter(c => c != null).map(c => (
-            <CharacterCard key={c.id} character={c} />
-          ))}
+          {data?.characters?.results
+            ?.filter(c => c != null)
+            .map(c => (
+              <CharacterCard key={c.id} character={c} />
+            ))}
         </ScrollView>
       )}
     </View>
