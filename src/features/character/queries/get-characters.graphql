@@ -1,0 +1,27 @@
+query GetCharacters($name: String) {
+  characters(filter: {name: $name}) {
+    info {
+      count
+      next
+      pages
+      prev
+    }
+    results {
+      id
+      name
+      gender
+      image
+      species
+      status
+      type
+      origin {
+        id
+        dimension
+        name
+        type
+        created
+      }
+      created
+    }
+  }
+}
